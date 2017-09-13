@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import styles from './stakes.scss'
 import '!style-loader!css-loader!rc-slider/assets/index.css'
-import Slider/*, { Range }*/ from 'rc-slider'
+//import Slider/*, { Range }*/ from 'rc-slider'
+import Range from 'rc-slider/es/Range'
 
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
+//const createSliderWithTooltip = Slider.createSliderWithTooltip;
+//const Range = createSliderWithTooltip(Slider.Range);
 
 import { Pie } from 'react-chartjs-2'
 

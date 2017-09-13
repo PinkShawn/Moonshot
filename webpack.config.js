@@ -7,6 +7,14 @@ const MinifyPlugin = require("babel-minify-webpack-plugin")
 
 const debug = process.env.NODE_ENV !== 'production'
 
+let preprocess = {
+  loader: 'preprocess-loader',
+  options: {
+    NODE_ENV: process.env.NODE_ENV,
+    DEBUG: debug
+  }
+}
+
 let common = {
   output: {
     filename: '[name].js',
@@ -32,6 +40,12 @@ let common = {
       components: resolve(__dirname, 'src/components'),
       pages: resolve(__dirname, 'src/pages'),
       reducers: resolve(__dirname, 'src/reducers'),
+
+      /* Enable went fixed: https://github.com/jerairrest/react-chartjs-2/issues/85 */
+			//'react': 'react-lite',
+			//'react-dom': 'react-lite',
+
+      'react-chartjs-2': 'react-chartjs-2/es'
     },
     plugins: [
       new DirectoryNamedWebpackPlugin()
@@ -42,12 +56,12 @@ let common = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'],
+        use: ['babel-loader', preprocess],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
+        use: ['style-loader', 'css-loader?modules', 'postcss-loader', preprocess],
       },
       {
         test: /\.scss$/,
@@ -55,7 +69,8 @@ let common = {
           'style-loader',
           'css-loader?modules',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          preprocess
 		],
       },
       {
@@ -74,13 +89,7 @@ if(!debug) {
 		plugins: [
 			//new webpack.optimize.UglifyJsPlugin()
       new MinifyPlugin()
-		],
-		resolve: {
-			alias: {
-				//'react': 'react-lite',
-				//'react-dom': 'react-lite'
-			}
-		},
+		]
 	})
 }
 

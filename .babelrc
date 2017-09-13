@@ -5,7 +5,7 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    
+
     // Might need if we run into issues.
     // "transform-es2015-destructuring",
 
@@ -32,6 +32,11 @@
   		"plugins": [
   			"react-hot-loader/babel"
   		]
-  	}
+  	},
+    "production": {
+      "presets": [
+        "react-optimize"
+      ]
+    }
   }
 }
