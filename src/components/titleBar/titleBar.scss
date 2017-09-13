@@ -1,0 +1,65 @@
+.title {
+	height: 28px;
+	position: relative;
+	background: #000;
+	color: #fff;
+	position: relative;;
+	z-index: 100;
+	user-select: none;
+	display: flex;
+	flex-direction: row;
+	-webkit-app-region: drag;
+}
+
+.logo {
+	width: 30px;
+}
+
+.titleLabel {
+	flex: 1;
+	padding: 5px;
+}
+
+.actionMenu {
+	position: relative;
+	width: 110px;
+	height: 100%;
+	font-size: 20px;
+	overflow: hidden;
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 20px;
+	transition: height 0.5s;
+	-webkit-app-region: no-drag;
+
+	.label {
+		color: #000;
+		transition: color 0.2s;
+		font-size: 14px;
+		line-height: 20px;
+		display: inline-block;
+		padding-right: 8px;
+		position: relative;
+		top: -3px;
+	}
+
+	&:hover {
+		background: #000;
+		height: 100px;
+
+		.label {
+			color: #ccc !important;
+		}
+	}
+
+	li {
+		background: #000;
+		cursor: pointer;
+		padding-bottom: 10px;
+		width: 200px;
+		text-align: right;
+		padding: 4px;
+		white-space: nowrap;
+		float: right;
+	}
+}

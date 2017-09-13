@@ -1,0 +1,27 @@
+.stakes {
+  :global {
+    .rc-slider-rail,
+    .rc-slider-track {
+      background-color: #ffb9d3;
+    }
+
+    .rc-slider-handle {
+      border-color: #e0187c;
+    }
+  }
+}
+
+.pieContainer {
+  padding-top: 30px;
+  position: relative;
+  text-align: center;
+
+  canvas {
+    display: inline-block !important;
+    max-width: 600px;
+  }
+}
+
+.sliderContainer {
+  padding: 20px 5%;
+}

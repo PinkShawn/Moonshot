@@ -1,0 +1,37 @@
+{
+  "presets": [
+    /* DO NOT put es2015 here! */
+    "react",
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    
+    // Might need if we run into issues.
+    // "transform-es2015-destructuring",
+
+    // Stage 3
+    "transform-async-to-generator",
+    "transform-exponentiation-operator",
+
+    // Stage 2
+    "syntax-trailing-function-commas",
+    "transform-object-rest-spread",
+
+    // Stage 1
+    "transform-class-constructor-call",
+    "transform-class-properties",
+    "transform-decorators",
+    "transform-export-extensions",
+
+    // Stage 0
+    "transform-do-expressions",
+    "transform-function-bind",
+  ],
+  "env": {
+  	"development": {
+  		"plugins": [
+  			"react-hot-loader/babel"
+  		]
+  	}
+  }
+}
